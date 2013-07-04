@@ -1,19 +1,24 @@
+/*
+  ChangeAddress
+  Change SRF08 I2C address.
+ 
+  This example code is in the public domain.
+ */
+ 
 #include <Wire.h>
 #include <SRF08.h>
 
 #define PRESENT_ADDRESS 0xE0
 #define NEW_ADDRESS 0xEA
 
-SRF08 srf08(PRESENT_ADDRESS);
+SRF08 srf08;
 
 void setup() {
-  // put your setup code here, to run once:
 
   Serial.begin(9600);
   Serial.println("Start Demo: Change I2C Address");
-  Serial.print("SRF08 Version: ");
-  int ver = srf08.getVersion();
-  Serial.println(ver);  
+  
+  srf08.begin(PRESENT_ADDRESS);
   
   Serial.print("Previous I2C Address: ");
   Serial.println(PRESENT_ADDRESS, HEX);
@@ -23,6 +28,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly: 
+
   delay(100);
 }
