@@ -11,7 +11,7 @@
 
  */ 
 
-#ifndef SFR08_h
+#ifndef SRF08_h
 #define SRF08_h
 
 #include "Arduino.h"
@@ -28,6 +28,7 @@ class SRF08
 		void begin(uint8_t address);
 		uint8_t getVersion();
 		uint8_t getLuminosity();
+		void setRange(uint8_t range);
 		unsigned int getDistanceIn();
 		unsigned int getDistanceCm();
 		unsigned int getDistanceMs();

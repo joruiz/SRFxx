@@ -11,7 +11,6 @@
 
  */
 
-#include <Arduino.h>
 #include "SRF08.h"
 #include <Wire.h>
 
@@ -53,7 +52,7 @@ uint8_t SRF08::getLuminosity(){
 	Wire.write(0x00);
 	Wire.write(INCHES);
 	Wire.endTransmission();
-	delay(100);
+	delay(50);
 
 	Wire.beginTransmission(_address);
 	Wire.write(LUMINOSITY_ADD);
@@ -64,6 +63,18 @@ uint8_t SRF08::getLuminosity(){
 		return Wire.read();
 	else
 		return -1;
+}
+
+//
+// setRange
+//
+// Set rango for distance mesurement
+void SRF08::setRange(uint8_t range) {
+
+	Wire.beginTransmission(_address);
+	Wire.write(0x02);
+	Wire.write(range);
+	Wire.endTransmission();
 }
 
 //
@@ -133,7 +144,7 @@ unsigned int SRF08::getDistance(uint8_t command){
 	Wire.write(command);						// Send 0x51 to start a ranging
 	Wire.endTransmission();
   
-	delay(100);									// Wait for ranging to be complete
+	delay(50);									// Wait for ranging to be complete
   
 	Wire.beginTransmission(_address);			// start communicating with SRFmodule
 	Wire.write(0x02);							// Call the register for start of ranging data
