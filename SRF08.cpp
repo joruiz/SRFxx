@@ -52,7 +52,7 @@ uint8_t SRF08::getLuminosity(){
 	Wire.write(0x00);
 	Wire.write(INCHES);
 	Wire.endTransmission();
-	delay(50);
+	delay(70);
 
 	Wire.beginTransmission(_address);
 	Wire.write(LUMINOSITY_ADD);

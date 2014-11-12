@@ -8,7 +8,7 @@
 #include <Wire.h>
 #include "SRF08.h"
 
-#define SRF08_ADDRESS 0xEA
+#define SRF08_ADDRESS 0xE0
 
 SRF08 srf08;
 
