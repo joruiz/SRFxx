@@ -144,7 +144,7 @@ unsigned int SRF08::getDistance(uint8_t command){
 	Wire.write(command);						// Send 0x51 to start a ranging
 	Wire.endTransmission();
   
-	delay(50);									// Wait for ranging to be complete
+	delay(70);									// Wait for ranging to be complete
   
 	Wire.beginTransmission(_address);			// start communicating with SRFmodule
 	Wire.write(0x02);							// Call the register for start of ranging data
